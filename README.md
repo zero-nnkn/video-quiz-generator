@@ -43,4 +43,4 @@ docker compose up -d
 Go to http://localhost:8501 and enjoy 😎
 
 ## 4. Usage
-[video](./demo.mp4)
+[video](https://drive.google.com/file/d/1_RnZG-8mxDWCPZokdJVrKJoXSALxp3HU/view?usp=sharing)
