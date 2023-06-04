@@ -43,7 +43,4 @@ docker compose up -d
 Go to http://localhost:8501 and enjoy 😎
 
 ## 4. Usage
-<center>
-    <video src="demo.mp4" width="700px" height="auto" loop autoplay>
-    </video>
-</center>
+[video](./demo.mp4)
