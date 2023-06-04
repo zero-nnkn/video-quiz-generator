@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  whisper-ui:
+    build: .
+    ports:
+      - 8501:8501
+    volumes:
+      - ./data:/data
+    restart: unless-stopped
+    # deploy:
+    #   resources:
+    #       reservations:
+    #           devices:
+    #             - driver: nvidia
+    #               device_ids: ['0']
+    #               capabilities: [gpu]

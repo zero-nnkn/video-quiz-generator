@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+  backend-fastapi:
+    build: ./fastapi
+    ports:
+      - 8080:8080
+    restart: unless-stopped
+    networks:
+      - deploy_network
+    container_name: backend-fastapi
+    # deploy:
+    #   resources:
+    #       reservations:
+    #           devices:
+    #             - driver: nvidia
+    #               device_ids: ['0']
+    #               capabilities: [gpu]
+
+  frontend-streamlit:
+    build: ./streamlit
+    ports:
+      - 8501:8501
+    restart: unless-stopped
+    networks:
+      - deploy_network
+    container_name: frontend-streamlit
+
+
+networks:
+  deploy_network:
+    driver: bridge
