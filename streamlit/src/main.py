@@ -85,7 +85,8 @@ with st.sidebar.expander(label='❓ Quiz generation', expanded=True):
                 # Post request to quiz generation endpoint
                 try:
                     response = requests.post(
-                        f'{settings.QUIZ_GENERATION_ENDPOINT}?content={st.session_state.transcript}&quiz_type={quiz_type}',
+                        f'{settings.QUIZ_GENERATION_ENDPOINT}\
+                            ?content={st.session_state.transcript}&quiz_type={quiz_type}',
                         json={
                             'service_info': {
                                 'service': service,
