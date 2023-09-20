@@ -14,13 +14,13 @@ class MultipleChoicePromptGenerator(QuizzPromptGenerator):
     example = 'What is the capital of France?; A) Berlin; B) Rome; C) Paris (Correct); D) Amsterdam'
 
     @classmethod
-    def generate_prompt(cls, num_quizzes, num_choices):
+    def generate_prompt(cls, content, num_quizzes, num_choices):
         require = (
-            f'Please create a practice test with {num_quizzes} multiple-choice questions'
+            f'Give me {num_quizzes} multiple-choice questions'
             + f'each with {num_choices} possible answers (mark the correct answers)'
-            + 'about the following text.'
+            + 'based on the provided reading passage:'
         )
-        prompt = f'{require} in this form {cls.example}.'
+        prompt = f'{require}\n{content}'
         return prompt
 
 
@@ -50,12 +50,13 @@ class OpenAIGPT(LLMService):
     @staticmethod
     def call_service(key, prompt):
         openai.api_key = key
-        response = openai.Completion.create(
-            engine='gpt-3.5-turbo',
-            prompt=prompt,
-            max_tokens=1000,
-            temperature=0.8,
-        )['choices'][0]['text']
+        print(prompt)
+        response = openai.ChatCompletion.create(
+            model='gpt-3.5-turbo',
+            messages=[
+                {"role": "user", "content": prompt},
+            ],
+        )['choices'][0]['message']['content']
         return response
 
 
