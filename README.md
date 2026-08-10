@@ -1,3 +1,5 @@
+
+
 # 🦉 Video Quiz Generator
 This is a simple web app that let you generate quizzes❓ from given video to check your understanding after watching the video. This app is a combination of [🔥 Streamlit UI](https://streamlit.io/) + [⚡️ FastAPI ](https://fastapi.tiangolo.com/) + [💬 Faster Whisper](https://github.com/guillaumekln/faster-whisper) + 🦜 Large Language Model (LLM) API ([Google Bard](https://github.com/dsdanielpark/Bard-API), [OpenAIGPT](https://platform.openai.com/account/api-keys)).
 
@@ -31,7 +33,7 @@ python streamlit/src/main.py
 ### Notes:
 - This repo is built and tested on python `3.10`.
 - Faster Whisper model is being run on CPU with Float32. You can change the config in file `fastapi/src/speech_rec/service.py` (See more config in the [Faster Whisper repo](https://github.com/guillaumekln/faster-whisper)).
-- Quizzes generated with OpenAPI GPT is better and more consistent between different times than Bard. But due to OpenAI API Key issue, this app has not been tested much on OpenAI config. So if you find any bugs while testing with your API Key, please create an issue. We really appreciate that.
+- Quizzes generated with OpenAI GPT is better and more consistent between different times than Bard. But due to OpenAI API Key issue, this app has not been tested much on OpenAI config. So if you find any bugs while testing with your API Key, please create an issue. We really appreciate that.
 - Currently, I am only testing on English language. If there are any problems when you try with another language, don't hesitate to create an issue.
 - Note that you need to double-check the generated quizzes.
 
